@@ -9,10 +9,10 @@ export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.avif",
 
 	// 名字
-	name: "Firefly",
+	name: "冬雪寒",
 
 	// 个人签名
-	bio: "Hello, I'm Firefly.",
+	bio: "coding...",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons
@@ -24,26 +24,15 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "qq",
 			icon: "fa7-brands:qq",
-			url: "https://qm.qq.com/q/ZGsFa8qX2G",
+			url: "https://qun.qq.com/universal-share/share?ac=1&authKey=hskwnCIOqKezRCyxCoQkbAL1fuBm%2BvfWOLnbK9VDnupVmC4mANkHtj8sEPL3e%2B2H&busi_data=eyJncm91cENvZGUiOiIxMTAxODUzMjY2IiwidG9rZW4iOiIyZ2FhRzEwUDNIMVR1K0Q3RFlLY0RaNUNyblcrS1owQVdyY0prR25GeC9uelRLKzl2dHJSN3IwVjRxUmpGaXRnIiwidWluIjoiMjE4MDA1NjYxOSJ9&data=KzEMPZlquFZb3WncP7jpTaS3weTPqpr9F9dnsF-LL_pkMyV6-82H-0B3L5gkK0W3zX2yWLvkXp9zVYG04bifNNR7cCI6n_NtAI0f-V8Fs2k&svctype=5&tempid=h5_group_info",
 			showName: false,
 		},
 		{
-			name: "GitHub",
-			icon: "fa7-brands:github",
-			url: "https://github.com/CuteLeaf",
+			name: "bilibili",
+			icon: "fa7-brands:bilibili",
+			url: "https://space.bilibili.com/1623614317?spm_id_from=333.1007.0.0",
 			showName: false,
 		},
-		{
-			name: "Email",
-			icon: "fa7-solid:envelope",
-			url: "mailto:xiaye@msn.com",
-			showName: false,
-		},
-		{
-			name: "RSS",
-			icon: "fa7-solid:rss",
-			url: "/rss/",
-			showName: false,
-		},
+		
 	],
 };
