@@ -9,4 +9,4 @@ draft: false
 ---
 ## 这个皮肤来自作者@anaertailin
 
-> ## 📥 下载链接: 点击[此链接](https://files.zohopublic.com.cn/public/workdrive-public/download/27xz83117a0905dd6486f994c62ee5dfac554?x-cli-msg=%7B%22linkId%22%3A%221MkHDAcgEqB-3aagF%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D)进行模组下载
+> ## 📥 下载链接: [下载链接](https://files.zohopublic.com.cn/public/workdrive-public/download/27xz83117a0905dd6486f994c62ee5dfac554?x-cli-msg=%7B%22linkId%22%3A%221MkHDAcgEqB-3aagF%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D)进行模组下载
