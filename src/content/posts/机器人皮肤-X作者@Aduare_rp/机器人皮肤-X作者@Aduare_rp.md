@@ -1,20 +1,22 @@
 ---
-title: 机器人皮肤-X作者@Aduare_rp
+title: 故障机器人皮肤
 published: 2026-06-28
-description: 一个非常好看的鸡煲皮肤~
 image: ./cover.png
 tags: [故障机器人, 角色皮肤MOD]
 category: 角色皮肤MOD
 draft: false
 ---
-<div style="margin-top: -0.5rem; margin-bottom: 1.5rem; font-size: 0.95rem; color: #888;">
-  作者：<strong>@Aduare_rp</strong>（Twitter）
-</div>
+👤 模组作者：**@Aduare_rp**（Twitter）
 
 ---
 
-## 📦 下载资源
+## 下载资源
 
-| 资源说明 | 下载链接 |
-| :--- | :--- |
-| **机器人皮肤 MOD** | [点击下载](https://files.zohopublic.com.cn/public/workdrive-public/download/27xz849c3e2b28ecd4c7581b1d2d803cc9cf8?x-cli-msg=%7B%22linkId%22%3A%221MkHDAcgClM-3aagF%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D) |
+<div class="download-list">
+
+<div class="download-item">
+  <span class="download-label">📦 本体文件</span>
+  <a class="no-styling" href="https://files.zohopublic.com.cn/public/workdrive-public/download/27xz849c3e2b28ecd4c7581b1d2d803cc9cf8?x-cli-msg=%7B%22linkId%22%3A%221MkHDAcgClM-3aagF%22%2C%22isFileOwner%22%3Afalse%2C%22version%22%3A%221.0%22%2C%22isWDSupport%22%3Afalse%7D" target="_blank">下载</a>
+</div>
+
+</div>

@@ -84,6 +84,55 @@
     margin-right: auto
     max-width: 100%
 
+  .download-list
+    display: flex
+    flex-direction: column
+    gap: 0.6rem
+    margin: 1rem 0
+
+  .download-item
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 0.75rem 1rem
+    background: var(--card-bg)
+    border-radius: var(--radius-large)
+    border: 1px solid var(--line-divider)
+    transition: background 0.15s ease, border-color 0.15s ease
+    gap: 1rem
+
+    &:hover
+      background: var(--btn-plain-bg-hover)
+
+    .download-label
+      font-weight: 500
+      flex: 1
+
+      small
+        font-weight: 400
+        opacity: 0.65
+
+    a
+      display: inline-flex
+      align-items: center
+      padding: 0.35rem 1rem
+      font-size: 0.85rem
+      font-weight: 500
+      border-radius: 999px
+      background: var(--btn-regular-bg)
+      color: var(--btn-content)
+      text-decoration: none
+      transition: all 0.15s ease
+      white-space: nowrap
+      flex-shrink: 0
+
+      &:hover
+        background: var(--btn-regular-bg-hover)
+        text-decoration: none
+
+      &:active
+        background: var(--btn-regular-bg-active)
+
 a.card-github
   display: block
   background: var(--license-block-bg)

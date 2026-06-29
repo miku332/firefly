@@ -75,7 +75,32 @@ Icons/LQIP data are generated into `src/constants/` and committed. Regenerate wi
 
 ## Deployment
 
-- **Vercel** (default, `vercel.json`)
-- **Cloudflare Workers** (`wrangler.jsonc`, set `CF_WORKERS` env var)
-- Static output to `dist/`
+- **Cloudflare Workers**（主要）— 通过 `@astrojs/cloudflare` 适配器部署，设置 `CF_WORKERS` 环境变量激活，配置见 `wrangler.jsonc`
+- Vercel（备选，`vercel.json`）
+- 静态输出到 `dist/`
+
+---
+
+## 协作规范
+
+### 行为准则
+- **改动前先确认**：涉及删除文件、修改构建配置（`astro.config.mjs`）、改动 `src/config/` 下配置文件时，先说明影响再动手
+- **不要自动 commit**：所有 git 操作由用户手动触发，不主动 commit 或 push
+- **改动后说明**：每次修改完成后，简要总结改了哪些文件、为什么这样改
+
+### 偏好
+- 代码注释使用中文
+- 新增组件保持与现有目录结构一致（`src/components/<领域>/`）
+- 优先使用项目中已有的工具/插件，不引入新依赖除非必要
+
+### 禁止事项
+- 不要修改 `src/constants/` 下自动生成的文件（图标数据、LQIP 数据等），除非知道如何重新生成
+- 不要删除或覆盖 `src/content/posts/` 下的博文
+- 不要改动 `pnpm-lock.yaml` 除非明确要求
+
+### 外部依赖与服务
+- 评论系统：Waline / Giscus / Twikoo，通过 `commentConfig.ts` 切换
+- 站内搜索：Pagefind（构建时自动索引）
+- 分析统计：Umami / Google Analytics / Clarity，通过 `analyticsConfig.ts` 切换
+- 部署：Cloudflare Workers（`@astrojs/cloudflare` + `wrangler.jsonc`）
 
