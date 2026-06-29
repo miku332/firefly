@@ -6,9 +6,6 @@ tags: [静默猎手, 角色皮肤MOD]
 category: 角色皮肤MOD
 draft: false
 ---
-👤 模组作者：**@anaertailin**
-
----
 
 ## 下载资源
 

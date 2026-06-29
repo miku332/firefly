@@ -6,9 +6,6 @@ tags: [故障机器人, 角色皮肤MOD]
 category: 角色皮肤MOD
 draft: false
 ---
-👤 模组作者：**@Aduare_rp**（Twitter）
-
----
 
 ## 下载资源
 
