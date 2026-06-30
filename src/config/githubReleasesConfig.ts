@@ -40,10 +40,13 @@ export const githubReleasesConfig = {
 			label: "酒狐",
 			desc: "杀戮尖塔2 酒狐模组",
 			cover: "/covers/jiuhu.png",
-			prerequisite: {
-				name: "BaseLib",
-				url: "https://github.com/Alchyr/BaseLib-StS2/releases/latest",
-			},
+		},
+		{
+			owner: "YuWan886",
+			repo: "Sts2-YuWanCard",
+			label: "YuWan Card",
+			desc: "杀戮尖塔2 YuWan Card 模组",
+			cover: "/covers/yuwancard.png",
 		},
 	] as GitHubRepo[],
 };

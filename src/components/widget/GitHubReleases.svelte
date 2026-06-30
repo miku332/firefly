@@ -177,33 +177,65 @@
 	let autoNavText = "正在跳转";
 
 	// 自动跳转：支持 URL 参数 ?repo=owner/repo&version=vX.Y.Z&open=1
-	function initAutoNav() {
-		const params = new URLSearchParams(window.location.search);
-		const repoParam = params.get("repo");
-		const versionParam = params.get("version");
-		const openParam = params.get("open");
+		function initAutoNav() {
+			const params = new URLSearchParams(window.location.search);
+			const repoParam = params.get("repo");
+			const versionParam = params.get("version");
+			const openParam = params.get("open");
 
-		if (!repoParam || openParam !== "1") return;
+			if (!repoParam || openParam !== "1") return;
 
-		const idx = repos.findIndex(r => `${r.owner}/${r.repo}` === repoParam);
-		if (idx < 0) return;
+			const idx = repos.findIndex(r => `${r.owner}/${r.repo}` === repoParam);
+			if (idx < 0) return;
 
-		autoNavOverlay = true;
-		autoNavText = "正在定位模组…";
-		goDetail(idx);
-			setTimeout(() => {
-				const overlay = document.querySelector('.so[data-autonav]') as HTMLElement | null;
-				if (overlay && overlay.parentElement !== document.body) {
-					document.body.appendChild(overlay);
-				}
-			}, 0);
+			autoNavOverlay = true;
+			autoNavText = "正在定位模组…";
+			goDetail(idx);
+				setTimeout(() => {
+					const overlay = document.querySelector('.so[data-autonav]') as HTMLElement | null;
+					if (overlay && overlay.parentElement !== document.body) {
+						document.body.appendChild(overlay);
+					}
+				}, 0);
+
+		// 关闭遮罩 & 清理 URL 参数
+		function closeOverlay() {
+			const overlay = document.querySelector('.so[data-autonav]') as HTMLElement | null;
+			if (overlay) overlay.remove();
+			autoNavOverlay = false;
+			document.documentElement.style.overflow = '';
+			document.body.style.overflow = '';
+			const url = new URL(window.location.href);
+			url.searchParams.delete("repo");
+			url.searchParams.delete("version");
+			url.searchParams.delete("open");
+			window.history.replaceState({}, "", url.toString());
+		}
+
+		const startTime = Date.now();
+		const TIMEOUT = 15000; // 15 秒超时
 
 		// 轮询等待 releases 加载完成，然后自动展开目标版本
-			function check() {
-				const r = repos[idx];
-				const key = k(r.owner, r.repo);
-				const state = dataMap[key];
-				if (state && !state.loading && state.releases.length > 0) {
+		function check() {
+			const r = repos[idx];
+			const key = k(r.owner, r.repo);
+			const state = dataMap[key];
+
+			// 超时：15 秒还没好就放弃
+			if (Date.now() - startTime > TIMEOUT) {
+				autoNavText = "加载超时，请稍后重试";
+				setTimeout(closeOverlay, 3000);
+				return;
+			}
+
+			if (state && !state.loading) {
+				// API 报错（403 限流等）
+				if (state.error) {
+					autoNavText = `加载失败：${state.error}`;
+					setTimeout(closeOverlay, 3000);
+					return;
+				}
+				if (state.releases.length > 0) {
 					let targetRel;
 					autoNavText = "正在查找版本…";
 					if (versionParam === "latest") {
@@ -223,18 +255,7 @@
 					}
 					if (targetRel) {
 						expandedRelease = targetRel.id;
-						// 先关闭遮罩，再触发测速，避免遮罩挡住测速窗口
-						const overlay = document.querySelector('.so[data-autonav]') as HTMLElement | null;
-						if (overlay) overlay.remove();
-						autoNavOverlay = false;
-					document.documentElement.style.overflow = '';
-					document.body.style.overflow = '';
-						// 清除 URL 参数
-						const url = new URL(window.location.href);
-						url.searchParams.delete("repo");
-						url.searchParams.delete("version");
-						url.searchParams.delete("open");
-						window.history.replaceState({}, "", url.toString());
+						closeOverlay();
 						// 自动选择第一个 .zip 文件触发下载测速
 						const zipAsset = targetRel.assets.find(a => /.zip$/i.test(a.name));
 						if (zipAsset) {
@@ -243,13 +264,11 @@
 					}
 					return;
 				}
-				requestAnimationFrame(check);
 			}
 			requestAnimationFrame(check);
+		}
 		requestAnimationFrame(check);
-	}
-
-	onMount(initAutoNav);
+	}onMount(initAutoNav);
 </script>
 
 {#if view === "grid"}
@@ -346,7 +365,7 @@
 <div class="so" on:click={cm} role="dialog">
 <div class="sm" on:click={(e) => e.stopPropagation()}>
 <div class="sh"><h3 class="st">下载测速</h3><button class="sx" on:click={cm}><Icon icon="material-symbols:close-rounded" /></button></div>
-	<p style="text-align:center;font-size:.8rem;opacity:.55;margin:-.25rem 0 .5rem;">{df}</p>
+	<p style="text-align:center;font-size:.8rem;opacity:.6;margin:-.25rem 0 .5rem;color:rgba(255,255,255,.85);">{df}</p>
 <div class="sr">
 {#each [...nr].sort((a, b) => b.speed - a.speed) as r}
 {@const b = [...nr].filter(x => x.status === "done").sort((a, b) => b.speed - a.speed)[0]}
@@ -365,5 +384,11 @@
 {/if}
 
 {#if autoNavOverlay}
-	<div class="so" data-autonav="true" style="cursor:default;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(0,0,0,0.45);z-index:99999;"></div>
-{/if}
+	<!-- svelte-ignore a11y_no_static_element_interactions -->
+	<div class="so" data-autonav="true" style="cursor:default;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:rgba(0,0,0,0.45);z-index:99999;display:flex;align-items:center;justify-content:center;">
+		<div class="nav-card">
+			<div class="nav-spinner"></div>
+			<p class="nav-text">{autoNavText}</p>
+		</div>
+	</div>
+	{/if}

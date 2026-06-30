@@ -90,29 +90,33 @@
 	.dpg { display:none; align-items:center; gap:.75rem; }
 	@media (min-width:1024px) { .mpg { display:none; } .dpg { display:flex; } }
 
-	.so{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-	.sm{background:var(--card-bg);border-radius:var(--radius-large);padding:1.5rem;min-width:300px;max-width:420px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,.2);max-height:90vh;overflow-y:auto}
-	.sh{display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:.75rem}
-	.st{font-size:1.1rem;font-weight:700}
-	.sx{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:2rem;height:2rem;border:none;background:transparent;cursor:pointer;border-radius:.5rem;color:rgba(0,0,0,.35);font-size:1.2rem;transition:all .15s ease}
-	.sx:hover{background:var(--btn-regular-bg-hover);color:var(--primary)}
-	.dark .sx{color:rgba(255,255,255,.35)}
-	.sr{display:flex;flex-direction:column;gap:.4rem}
-	.srr{display:flex;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.5rem;border:1px solid var(--line-divider);gap:.5rem}
-	.srr.best{border-color:var(--primary);background:color-mix(in srgb, var(--primary) 8%, transparent)}
-	.sn{font-weight:600;font-size:.9rem;flex-shrink:0}
-	.si{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
-	.sv{font-weight:700;color:var(--primary);font-size:.85rem}
-	.se{font-size:.8rem;color:var(--admonitions-color-warning,#e74c3c)}
-	.ss{width:1rem;height:1rem;border:2px solid var(--line-divider);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite}
-	.sdl{display:inline-flex;align-items:center;padding:.25rem .75rem;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;background:var(--btn-regular-bg);color:var(--btn-content);transition:all .15s ease;flex-shrink:0}
-	.sdl:hover{background:var(--primary);color:#fff}
-		.stip{text-align:center;font-size:.75rem;opacity:.4;margin-top:.6rem}
+	.so{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+		.sm{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:1.5rem;min-width:300px;max-width:420px;width:90%;max-height:90vh;overflow-y:auto}
+		.sh{display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:.75rem}
+		.st{font-size:1.1rem;font-weight:700;color:#fff}
+		.sx{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:2rem;height:2rem;border:none;background:transparent;cursor:pointer;border-radius:.5rem;color:rgba(255,255,255,.45);font-size:1.2rem;transition:all .15s ease}
+		.sx:hover{background:rgba(255,255,255,.1);color:#fff}
+		.sr{display:flex;flex-direction:column;gap:.4rem}
+		.srr{display:flex;align-items:center;justify-content:space-between;padding:.5rem .75rem;border-radius:.5rem;border:1px solid rgba(255,255,255,.12);gap:.5rem}
+		.srr.best{border-color:var(--primary);background:color-mix(in srgb, var(--primary) 12%, transparent)}
+		.sn{font-weight:600;font-size:.9rem;color:rgba(255,255,255,.85);flex-shrink:0}
+		.si{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:flex-end}
+		.sv{font-weight:700;color:#fff;font-size:.85rem}
+		.se{font-size:.8rem;color:#f0a04b}
+		.ss{width:1rem;height:1rem;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+		.sdl{display:inline-flex;align-items:center;padding:.25rem .75rem;border-radius:999px;font-size:.78rem;font-weight:600;text-decoration:none;background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);transition:all .15s ease;flex-shrink:0}
+		.sdl:hover{background:var(--primary);color:#fff}
+			.stip{text-align:center;font-size:.75rem;opacity:.4;margin-top:.6rem;color:rgba(255,255,255,.6)}
 
-		.prereq-btn{display:flex;align-items:center;gap:.5rem;padding:.6rem .85rem;border-radius:.5rem;text-decoration:none;color:#e67e22;background:rgba(230,126,34,.08);border:1px solid rgba(230,126,34,.2);font-size:.85rem;transition:all .15s ease;margin-bottom:.25rem}
+			.prereq-btn{display:flex;align-items:center;gap:.5rem;padding:.6rem .85rem;border-radius:.5rem;text-decoration:none;color:#e67e22;background:rgba(230,126,34,.08);border:1px solid rgba(230,126,34,.2);font-size:.85rem;transition:all .15s ease;margin-bottom:.25rem}
 		.prereq-btn:hover{background:rgba(230,126,34,.15);border-color:rgba(230,126,34,.4);color:#d35400}
 		.prereq-btn strong{font-weight:700}
 		.prereq-icon{font-size:1.1rem;flex-shrink:0}
 		.dark .prereq-btn{color:#f0a04b;background:rgba(240,160,75,.1);border-color:rgba(240,160,75,.2)}
 		.dark .prereq-btn:hover{background:rgba(240,160,75,.18);border-color:rgba(240,160,75,.4);color:#f5b860}
+
+/* 自动跳转遮罩 — 与 redirect-overlay 一致的毛玻璃卡片 */
+.nav-card{display:flex;flex-direction:column;align-items:center;gap:.75rem;padding:2rem 2.5rem;border-radius:1rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+.nav-spinner{width:36px;height:36px;border:3px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+.nav-text{color:#fff;font-size:1.2rem;font-weight:600;letter-spacing:.05em;margin:0}
 
