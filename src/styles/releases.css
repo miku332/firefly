@@ -45,7 +45,7 @@
 
 	.rl { display:flex; flex-direction:column; gap:.5rem; }
 	.ri { border:1px solid var(--line-divider); border-radius:.75rem; overflow:hidden; }
-	.dark .ri { border-color:rgba(255,255,255,.1); }
+.dark .ri { border-color:rgba(255,255,255,.1); }
 	.rh { width:100%; display:flex; align-items:center; justify-content:space-between; padding:.75rem 1rem; border:none; background:transparent; cursor:pointer; font:inherit; color:inherit; gap:.75rem; }
 	.rh:hover { background:var(--btn-plain-bg-hover); }
 	.dark .rh:hover { background:rgba(255,255,255,.05); }
