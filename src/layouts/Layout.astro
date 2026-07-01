@@ -1223,9 +1223,9 @@ function disableAnimation() {
         toc.classList.add("toc-not-ready");
       }
 
-      // 确保页面滚动到顶部，切页期间使用即时回顶，移动端不使用，避免出现闪烁
+      // 确保页面滚动到顶部，切页期间使用即时回顶
       // 全屏壁纸模式非首页跳过此处回顶，由 scroll:top 钩子统一处理滚动到 #main-grid
-      const shouldUseSmoothScroll = window.innerWidth >= 768;
+      const shouldUseSmoothScroll = true;
       const isFullscreenNonHome = document.documentElement.getAttribute("data-wallpaper-mode") === "fullscreen" && !isHomePage;
       if (shouldUseSmoothScroll && !isFullscreenNonHome) {
         window.scrollTo({
